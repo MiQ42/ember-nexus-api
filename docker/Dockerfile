@@ -1,11 +1,11 @@
-# this file is based upon https://github.com/docker-library/php/blob/master/8.3/alpine3.21/cli/Dockerfile , licensed MIT
-# and https://github.com/nginx/unit/blob/master/pkg/docker/Dockerfile.php8.3 , licensed Apache 2.0
+# this file is based upon https://github.com/docker-library/php/blob/master/8.3/alpine3.22/cli/Dockerfile , licensed MIT
+# and https://github.com/nginx/unit/blob/master/pkg/docker/Dockerfile.php8.4 , licensed Apache 2.0
 
 
-FROM alpine:3.21 AS php_embed
-LABEL org.opencontainers.image.source="https://github.com/docker-library/php/tree/master/8.4/alpine3.21/cli" \
-    org.opencontainers.image.title="Adapted php:8.4-cli-alpine3.21" \
-    org.opencontainers.image.description="Based on php:8.4-cli-alpine3.21, without sql, with embed."
+FROM alpine:3.22 AS php_embed
+LABEL org.opencontainers.image.source="https://github.com/docker-library/php/tree/master/8.4/alpine3.22/cli" \
+    org.opencontainers.image.title="Adapted php:8.4-cli-alpine3.22" \
+    org.opencontainers.image.description="Based on php:8.4-cli-alpine3.22, without sql, with embed."
 
 # dependencies required for running "phpize"
 # these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
@@ -34,10 +34,10 @@ ENV PHPIZE_DEPS="\
     PHP_CPPFLAGS="$PHP_CFLAGS" \
     PHP_LDFLAGS="-Wl,-O1 -pie" \
     GPG_KEYS="AFD8691FDAEDF03BDF6E460563F15A9B715376CA 9D7F99A0CB8F05C8A6958D6256A97AF7600A39A6 0616E93D95AF471243E26761770426E17EBBB3DD" \
-    PHP_VERSION="8.4.6" \
-    PHP_URL="https://www.php.net/distributions/php-8.4.6.tar.xz" \
-    PHP_ASC_URL="https://www.php.net/distributions/php-8.4.6.tar.xz.asc" \
-    PHP_SHA256="089b08a5efef02313483325f3bacd8c4fe311cf1e1e56749d5cc7d059e225631"
+    PHP_VERSION="8.4.7" \
+    PHP_URL="https://www.php.net/distributions/php-8.4.7.tar.xz" \
+    PHP_ASC_URL="https://www.php.net/distributions/php-8.4.7.tar.xz.asc" \
+    PHP_SHA256="e29f4c23be2816ed005aa3f06bbb8eae0f22cc133863862e893515fc841e65e3"
 
 # persistent / runtime deps
 RUN apk add --no-cache \
